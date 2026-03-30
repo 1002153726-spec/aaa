@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مفاجآت عطلة الربيع - النسخة الثانية</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            /* خلفية جديدة بألوان الأرجواني والوردي الفاتح */
+            background: radial-gradient(circle at top, #e0e7ff, #fae8ff, #fce7f3);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        .box-container {
+            perspective: 1000px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .box-container:hover {
+            transform: scale(1.05) translateY(-5px);
+        }
+
+        .gift-box {
+            font-size: 4rem;
+            filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+            transition: all 0.3s ease;
+        }
+
+        @keyframes jump {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-15px) scale(1.1); }
+        }
+
+        .jumping {
+            animation: jump 0.5s ease-in-out;
+        }
+
+        .opened-box {
+            filter: grayscale(40%) opacity(0.6);
+            transform: scale(0.95);
+        }
+
+        .modal-enter {
+            animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 25px -5px rgba(219, 39, 119, 0.1);
+        }
+
+        /* حركات مرحة للزينة الجديدة */
+        @keyframes float-slow {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(3deg); }
+        }
+        @keyframes swing {
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+        }
+        .animate-float-1 { animation: float-slow 4s ease-in-out infinite; }
+        .animate-float-2 { animation: float-slow 5s ease-in-out infinite 1s; }
+        .animate-float-3 { animation: float-slow 6s ease-in-out infinite 2s; }
+        .animate-swing { animation: swing 4s ease-in-out infinite; }
+        .animate-swing-delay { animation: swing 5s ease-in-out infinite 1.5s; }
+
+    </style>
+</head>
+<body class="text-gray-800 relative pb-20">
+
+    <div class="fixed inset-0 pointer-events-none" style="background-image: radial-gradient(rgba(219,39,119,0.05) 1px, transparent 1px); background-size: 30px 30px; opacity: 0.6;"></div>
+
+    <div class="container mx-auto px-4 pt-12 relative z-10">
+        <header class="text-center mb-16 relative py-12 px-4 max-w-4xl mx-auto rounded-3xl bg-white/40 backdrop-blur-md border border-white/60 shadow-lg mt-8">
+            
+            <!-- زينة جديدة ومبهجة (بالونات، طائرات ورقية، قوس قزح، شمس) -->
+            <div class="absolute -top-8 -right-4 md:-right-8 text-6xl animate-float-1 opacity-90 drop-shadow-md z-20">🎈</div>
+            <div class="absolute -top-6 -left-4 md:-left-8 text-5xl animate-swing opacity-90 drop-shadow-md z-20">🪁</div>
+            <div class="absolute top-1/3 -right-6 md:-right-12 text-5xl animate-float-2 opacity-90 drop-shadow-md z-20">🌈</div>
+            <div class="absolute top-1/2 -left-6 md:-left-12 text-5xl animate-swing-delay opacity-80 drop-shadow-md z-20">☀️</div>
+            <div class="absolute -bottom-8 right-16 text-5xl animate-float-3 opacity-90 drop-shadow-md z-20">🌟</div>
+            <div class="absolute -bottom-10 left-20 text-6xl animate-float-1 opacity-80 drop-shadow-md z-20">🎀</div>
+            <div class="absolute -top-12 left-1/2 transform -translate-x-1/2 text-5xl animate-float-3 opacity-90 drop-shadow-md z-20">🕊️</div>
+            <div class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-4xl animate-swing opacity-90 drop-shadow-md z-20">🌸</div>
+
+            <!-- النصوص والألوان الجديدة -->
+            <h1 class="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-600 via-pink-500 to-rose-500 mb-10 py-4 leading-normal drop-shadow-sm relative z-10">
+                إجازة ربيع سعيدة
+            </h1>
+            
+            <h2 class="text-2xl md:text-3xl font-bold text-purple-700 mb-8 mt-6 drop-shadow-sm relative z-10">
+                المدرسة الأبتدائية "ج" - نحف
+            </h2>
+            
+            <div class="w-32 h-1 bg-gradient-to-r from-purple-300 via-pink-400 to-rose-300 mx-auto mb-8 rounded-full opacity-80"></div>
+            
+            <p class="text-xl md:text-2xl text-purple-900 font-semibold drop-shadow-sm mb-4 relative z-10">
+                اضغط على صندوقك لتكتشف رسالتك قبل الإجازة!
+            </p>
+            <p class="text-lg md:text-xl text-pink-700 font-bold drop-shadow-sm relative z-10">
+                مع تحيات: المعلمة امتثال سرحان
+            </p>
+        </header>
+
+        <div id="studentsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+            <!-- الصناديق ستضاف هنا برمجياً -->
+        </div>
+    </div>
+
+    <!-- نافذة الرسالة -->
+    <div id="messageModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4 bg-purple-900 bg-opacity-30 backdrop-blur-sm">
+        <div class="glass-panel w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl p-6 md:p-8 text-center relative modal-enter shadow-2xl shadow-pink-200">
+            <button onclick="closeModal()" class="absolute top-4 left-4 text-gray-500 hover:text-purple-600 hover:bg-purple-100 p-2 rounded-full transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
+
+            <div class="text-6xl mb-4" id="modalEmoji">🎉</div>
+            <h2 id="modalStudentName" class="text-3xl md:text-5xl font-bold text-purple-600 mb-6 drop-shadow-sm">اسم الطالب</h2>
+            
+            <div class="bg-gradient-to-r from-purple-50 to-pink-50 rounded-2xl p-6 border border-pink-200 mb-6 shadow-inner text-right">
+                <p id="modalStudentMessage" class="text-xl md:text-2xl leading-relaxed text-gray-800 font-semibold">
+                    هنا تكتب الرسالة...
+                </p>
+            </div>
+            
+            <button onclick="closeModal()" class="mt-4 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-3 px-10 rounded-full text-xl hover:scale-105 transition-transform shadow-lg shadow-pink-300">
+                إلى اللقاء في الفصل الثالث 👋
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // قائمة الطلاب الجديدة
+        const students = [
+            { name: "عبدالقادر محمد اسماعيل", gender: "M", message: "أتمنى لك عطلة ربيع ممتعة ومليئة بالمغامرات الجميلة. بانتظار عودتك القوية ونشاطك المعتاد في الفصل القادم! 🚀" },
+            { name: "محمد مهدي وهبه", gender: "M", message: "إجازة ربيعية سعيدة ومكللة بالراحة. استعد جيداً لننطلق معاً نحو نجاحات وتحديات جديدة! 🌟" },
+            { name: "خضر عبدالله خليل", gender: "M", message: "عطلة ربيع دافئة وآمنة لك ولعائلتك. أتمنى أن تمضي وقتاً رائعاً وتعود بهمة تعانق السماء! ☀️" },
+            { name: "محمد علي حاج", gender: "M", message: "استرح جيداً والعب كثيراً في هذه الإجازة. بانتظار ابتسامتك وطاقتك الإيجابية في الفصل الثالث! 🎈" },
+            { name: "ريتال ثروت حاج حسن", gender: "F", message: "إجازة ربيع هادئة ومبهجة تشبه روحك الجميلة. نلتقي قريباً لنكمل رحلة التألق والإبداع! 🌸" },
+            { name: "هاجر ناصر حجاب", gender: "F", message: "أتمنى لكِ عطلة مليئة بالسعادة والأوقات الحلوة. عودي إلينا في الفصل الثالث بحيوية وإرادة لا تلين! 🎀" },
+            { name: "سدن حسن مصطفى", gender: "F", message: "عطلة ربيعية مميزة ومليئة بالفرح. بانتظار عودتك المشرقة لنحقق المزيد من الأهداف الرائعة! 🌈" },
+            { name: "احمد صلاح مطر", gender: "M", message: "إجازة سعيدة ومكللة بالعافية. استمتع بوقتك وعد إلينا في الفصل القادم بنشاط متجدد وطموح كبير! 🏆" },
+            { name: "ايلين وسام مصري", gender: "F", message: "أتمنى لكِ أوقاتاً ممتعة ودافئة في عطلة الربيع. بانتظارك في الفصل الثالث لنرسم معاً أجمل النجاحات! 🎨" },
+            { name: "وديع صافي مصري", gender: "M", message: "عطلة ربيع آمنة وهادئة. عد إلينا بطاقتك الرائعة لنستمر في مسيرة التميز والتفوق! ✨" },
+            { name: "علي فريد مصري", gender: "M", message: "إجازة ربيعية مليئة باللعب والفرح. نلتقي في الفصل الثالث مع همم عالية وأحلام جديدة! 🪁" },
+            { name: "تاليا نصار نصار", gender: "F", message: "عطلة ربيع سعيدة ومكللة بالصحة. استعدي لفصل ثالث مشرق بإنجازاتك الجميلة وحيويتك! 🌻" },
+            { name: "ادم بسّام نعيم", gender: "M", message: "أتمنى لك إجازة ربيع مريحة وممتعة. بانتظار إبداعاتك ومشاركاتك المميزة في الفصل القادم! 💡" },
+            { name: "رتيل سهير سعيد", gender: "F", message: "إجازة هادئة وجميلة كجمال حضورك. موعدنا في الفصل الثالث مع طموحات جديدة ونجاحات مستمرة! 🌷" },
+            { name: "خالد رشاد صفدي", gender: "M", message: "عطلة ربيعية آمنة وسعيدة. عد إلينا بإرادة قوية وعزيمة لتحقيق أفضل النتائج! 🥇" },
+            { name: "احمد رمزي سرحان", gender: "M", message: "أتمنى لك عطلة ربيع تملؤها السعادة والمرح. نلتقي قريباً لنكمل معاً رحلة التميز! 🎯" },
+            { name: "ريان زياد سرحان", gender: "M", message: "إجازة ربيع رائعة وممتعة. بانتظار عودتك في الفصل الثالث بنشاط وهمة تعانق النجوم! 🌟" },
+            { name: "محمد إبراهيم عباس", gender: "M", message: "عطلة سعيدة وآمنة. استمتع بوقتك وعد إلينا بطاقة متجددة وإرادة صلبة لتحقيق النجاح! 🛡️" },
+            { name: "مريم خالد عباس", gender: "F", message: "أتمنى لكِ عطلة ربيعية مبهجة ومكللة بالعافية. ننتظر عودتك المشرقة لنكمل مسيرة الإبداع! 🌺" },
+            { name: "مريم سامر عباس", gender: "F", message: "إجازة ربيع سعيدة ودافئة. استعدي لفصل ثالث مليء بالآمال الجميلة والتفوق المستمر! 💫" },
+            { name: "غزل أحمد عبدالغني", gender: "F", message: "عطلة ربيع هادئة ومريحة. بانتظارك في الفصل الثالث لننطلق نحو أهداف جديدة بإرادة قوية! 🦋" },
+            { name: "عمر محمد عبدالغني", gender: "M", message: "أتمنى لك إجازة ممتعة ومكللة بالصحة. موعدنا في الفصل الثالث لنحقق أهدافاً جديدة ورائعة! 🧠" },
+            { name: "محمد عبدو عتمه", gender: "M", message: "عطلة ربيع آمنة وسعيدة. عد إلينا في الفصل الثالث مفعماً بالحيوية لتحقيق آمال وطموحات جديدة! 👑" },
+            { name: "قاسم محمد عتمه", gender: "M", message: "إجازة ربيعية سعيدة ومكللة بالراحة. بانتظار تألقك في الفصل الثالث بنشاط وهمة عالية! 💎" },
+            { name: "يحيى أحمد قيس", gender: "M", message: "أتمنى لك عطلة ربيع آمنة تملؤها السعادة. استعد للفصل الثالث بحيوية ونشاط لنعانق النجاح من جديد! ☀️" },
+            { name: "عمر يوسف قيس", gender: "M", message: "عطلة ربيعية سعيدة ومكللة بالصحة. بانتظارك في الفصل الثالث لنبدأ معاً رحلة جديدة من التميز! 🤝" },
+            { name: "اروى محمد قيس", gender: "F", message: "إجازة ربيع هادئة وجميلة. موعدنا في الفصل الثالث مع همم عالية وإرادة قوية لتحقيق الأحلام! 🏵️" },
+            { name: "ديمه أسعد قيس", gender: "F", message: "عطلة ربيع ممتعة ومليئة بالفرح. استعدي لفصل ثالث مشرق بأهدافك الرائعة ونشاطك الدائم! 🎊" },
+            { name: "لاريس عبدالله قيس", gender: "F", message: "أتمنى لكِ عطلة ربيع دافئة ومكللة بالسعادة. نلتقي في الفصل الثالث بآمال عريضة وإرادة قوية! 😊" },
+            { name: "عبدالله مهران قيس", gender: "M", message: "إجازة ربيع سعيدة وآمنة. عد إلينا في الفصل الثالث بإرادة قوية وعزيمة لتحقيق المزيد من النجاحات! 🚀" },
+            { name: "مريم محمد قشقوش", gender: "F", message: "أتمنى لكِ إجازة هادئة ومريحة. نلتقي في الفصل الثالث بطاقات متجددة وآمال مشرقة للمستقبل! 📈" },
+            { name: "آيه فادي شباط", gender: "F", message: "عطلة ربيع سعيدة ومبهجة كروحك. بانتظار عودتك في الفصل الثالث بنشاط وتألق لا يتوقف! ✨" }
+        ];
+
+        const grid = document.getElementById('studentsGrid');
+        const emojis = ['🎁', '📦', '💝', '🛍️']; // تنويع أشكال الهدايا
+        
+        students.forEach((student, index) => {
+            const randomEmoji = emojis[index % emojis.length];
+            
+            const boxWrapper = document.createElement('div');
+            boxWrapper.className = 'box-container flex flex-col items-center justify-center p-4 rounded-2xl glass-panel';
+            boxWrapper.id = `box-${index}`;
+            boxWrapper.onclick = () => openBox(index);
+            
+            boxWrapper.innerHTML = `
+                <div class="gift-box mb-3" id="icon-${index}">${randomEmoji}</div>
+                <h3 class="text-xl md:text-2xl font-bold text-purple-900 text-center w-full drop-shadow-sm pb-2 border-b border-purple-200/50">
+                    ${student.name}
+                </h3>
+                <span class="mt-2 text-xs text-pink-700 font-bold bg-pink-100/80 px-3 py-1 rounded-full opacity-0 transition-opacity border border-pink-200" id="badge-${index}">تم الفتح ✓</span>
+            `;
+            grid.appendChild(boxWrapper);
+        });
+
+        function openBox(index) {
+            const boxWrapper = document.getElementById(`box-${index}`);
+            const icon = document.getElementById(`icon-${index}`);
+            const badge = document.getElementById(`badge-${index}`);
+            const student = students[index];
+
+            if(boxWrapper.classList.contains('opened')) return;
+
+            // حركة قفز بدلاً من الاهتزاز في هذه النسخة
+            icon.classList.add('jumping');
+
+            setTimeout(() => {
+                icon.classList.remove('jumping');
+                icon.innerHTML = '✨'; 
+                boxWrapper.classList.add('opened');
+                boxWrapper.classList.add('opened-box');
+                badge.classList.remove('opacity-0');
+                
+                fireConfetti();
+                showModal(student.name, student.message, student.gender);
+            }, 500);
+        }
+
+        function fireConfetti() {
+            var duration = 3 * 1000;
+            var end = Date.now() + duration;
+
+            (function frame() {
+                // ألوان متناسبة مع الثيم الجديد (وردي، أرجواني، أزرق فاتح، ذهبي)
+                confetti({
+                    particleCount: 5, angle: 60, spread: 55, origin: { x: 0 },
+                    colors: ['#8B5CF6', '#EC4899', '#F43F5E', '#FCD34D'], shapes: ['star'], scalar: 1.2
+                });
+                confetti({
+                    particleCount: 5, angle: 120, spread: 55, origin: { x: 1 },
+                    colors: ['#A855F7', '#D946EF', '#38BDF8', '#FDA4AF'], shapes: ['circle'], scalar: 0.8
+                });
+                if (Date.now() < end) requestAnimationFrame(frame);
+            }());
+        }
+
+        const modal = document.getElementById('messageModal');
+        const modalName = document.getElementById('modalStudentName');
+        const modalMessage = document.getElementById('modalStudentMessage');
+
+        function showModal(name, message, gender) {
+            const firstName = name.split(' ')[0];
+            const prefix = gender === 'F' ? 'عزيزتي' : 'عزيزي';
+            
+            modalName.textContent = name;
+            
+            modalMessage.innerHTML = `
+                <span class="text-purple-700 font-black text-3xl mb-3 block">${prefix} ${firstName}،</span>
+                <span class="text-gray-700 block mb-6">${message}</span>
+                <span class="text-pink-600 font-bold text-lg block border-t border-purple-100 pt-4 mt-2">
+                    معلمتك المحبة،<br>امتثال سرحان 🌸
+                </span>
+            `;
+            
+            modal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            modal.classList.add('hidden');
+        }
+
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) closeModal();
+        });
+
+    </script>
+</body>
+</html>
